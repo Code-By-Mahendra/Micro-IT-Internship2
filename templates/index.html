@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Number Guessing Game</title>
+<style>
+  /* Your existing styles */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+  }
+  .box {
+    background: #fff;
+    width: 350px;
+    max-width: 100%;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  h2 {
+    margin-bottom: 10px;
+    color: #4a148c;
+    letter-spacing: 1.5px;
+  }
+  p {
+    font-size: 16px;
+    margin: 5px 0 25px;
+    color: #555;
+  }
+  input[type="number"] {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 18px;
+    border-radius: 12px;
+    border: 2px solid #ccc;
+    transition: border-color 0.3s ease;
+    outline: none;
+  }
+  input[type="number"]:focus {
+    border-color: #7b3fe4;
+    box-shadow: 0 0 8px #a890f7;
+  }
+  button {
+    margin-top: 20px;
+    background: #7b3fe4;
+    color: white;
+    border: none;
+    padding: 14px 0;
+    width: 100%;
+    font-size: 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  button:hover {
+    background-color: #5c2ccf;
+    box-shadow: 0 8px 20px rgba(123, 63, 228, 0.6);
+  }
+  .message {
+    margin-top: 25px;
+    font-size: 17px;
+    color: #4a148c;
+    min-height: 24px; /* To avoid jumping content */
+  }
+  .footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 15px;
+    color: #ddd;
+  }
+  .footer a {
+    color: #ddd;
+    text-decoration: none;
+    margin: 0 12px;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s ease;
+  }
+  .footer a img {
+    margin-right: 8px;
+    width: 24px;
+    height: 24px;
+    filter: none;
+    vertical-align: middle;
+  }
+  .footer a:hover {
+    color: #bb86fc;
+  }
+  .footer a:hover img {
+    filter: brightness(0.7);
+  }
+  /* New Game button style */
+  #newGameBtn {
+    background-color: #ff4081;
+    margin-top: 15px;
+  }
+  #newGameBtn:hover {
+    background-color: #e73370;
+  }
+</style>
+</head>
+<body>
+  <div class="box">
+    <h2>Guess the Number!</h2>
+    <p>Enter a number between 1 and 100</p>
+    <form method="post" id="guessForm">
+      <input type="number" name="guess" required min="1" max="100" placeholder="Your guess..." />
+      <button type="submit">Guess</button>
+    </form>
+    <button id="newGameBtn" type="button">Start New Game</button>
+    <p class="message" id="message">{{ message }}</p>
+  </div>
+
+  <div class="footer">
+    <a href="https://github.com/Code-By-Mahendra" target="_blank" aria-label="GitHub">
+      <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" />
+      GitHub
+    </a>
+    <a href="https://www.linkedin.com/in/velagapudi-mahendra-543481353/" target="_blank" aria-label="LinkedIn">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" />
+      LinkedIn
+    </a>
+  </div>
+
+  <script>
+    // Removed welcome popup
+
+    // Start New Game button functionality
+    document.getElementById('newGameBtn').addEventListener('click', function() {
+      // Clear input field
+      document.querySelector('input[name="guess"]').value = '';
+      // Clear message text
+      document.getElementById('message').textContent = '';
+      // Optionally, set focus to input
+      document.querySelector('input[name="guess"]').focus();
+    });
+  </script>
+</body>
+</html>
